@@ -21,12 +21,18 @@ class StoryLoader:
             path.name for path in self._stories_path.iterdir() if path.is_dir() and not path.name.startswith(".")
         )
 
+    def load_manifest(self, story_id: str) -> StoryManifest:
+        root = self._stories_path / story_id
+        if not root.exists():
+            raise StoryNotFoundError(f"Story '{story_id}' was not found in {self._stories_path}.")
+        return StoryManifest.model_validate(self._read_data(root / "story.yaml", root / "story.json"))
+
     def load(self, story_id: str) -> Story:
         root = self._stories_path / story_id
         if not root.exists():
             raise StoryNotFoundError(f"Story '{story_id}' was not found in {self._stories_path}.")
 
-        manifest = StoryManifest.model_validate(self._read_data(root / "story.yaml", root / "story.json"))
+        manifest = self.load_manifest(story_id)
         scenes_dir = root / "scenes"
         scenes: dict[str, Scene] = {}
         for scene_file in sorted([*scenes_dir.glob("*.yaml"), *scenes_dir.glob("*.yml"), *scenes_dir.glob("*.json")]):

@@ -20,13 +20,13 @@ class StoryCatalog:
     def list_stories(self) -> list[StorySummary]:
         summaries: list[StorySummary] = []
         for story_id in self._loader.list_story_ids():
-            story = self._loader.load(story_id)
+            manifest = self._loader.load_manifest(story_id)
             summaries.append(
                 StorySummary(
-                    id=story.manifest.id,
-                    title=story.manifest.title,
-                    description=story.manifest.description,
-                    language=story.manifest.language,
+                    id=manifest.id,
+                    title=manifest.title,
+                    description=manifest.description,
+                    language=manifest.language,
                 )
             )
         return summaries

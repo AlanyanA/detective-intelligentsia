@@ -35,7 +35,7 @@ class EndingMetadata(BaseModel):
 
     id: str
     title: str
-    outcome: Literal["success", "partial", "failure", "secret"] = "partial"
+    outcome: Literal["success", "partial", "failure", "secret", "dark_success"] = "partial"
     completion: bool = True
 
 

@@ -10,7 +10,7 @@ from detective_bot.telegram.callbacks import choice_callback
 def test_example_story_validates() -> None:
     loader = StoryLoader(Path("stories"))
     validator = StoryValidator()
-    for story_id in ("case_001", "case_002"):
+    for story_id in ("case_001", "case_002", "case_003_football"):
         report = validator.validate(loader.load(story_id))
         assert report.errors == []
 
