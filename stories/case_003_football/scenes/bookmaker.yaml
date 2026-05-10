@@ -1,0 +1,15 @@
+id: bookmaker
+text: "Букмекер признается: крупная ставка пришла от человека, связанного с руководством клуба."
+
+effects:
+  discover_clues:
+    - management_bet
+
+choices:
+  - id: owner_path2
+    text: Выйти на владельца
+    next_scene: owner
+
+  - id: back_intro9
+    text: Вернуться
+    next_scene: intro

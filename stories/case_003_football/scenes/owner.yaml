@@ -1,0 +1,11 @@
+id: owner
+text: "Владелец клуба предлагает тебе сделку: забыть расследование в обмен на деньги и доступ к эксклюзивной информации."
+
+choices:
+  - id: accept_deal
+    text: Принять сделку
+    next_scene: ending_dark
+
+  - id: refuse_deal
+    text: Продолжить расследование
+    next_scene: final_reveal

@@ -1,0 +1,15 @@
+id: striker_break
+text: "Форвард срывается и признается, что аналитик перед исчезновением собирался встретиться с владельцем клуба после матча."
+
+effects:
+  discover_clues:
+    - owner_meeting
+
+choices:
+  - id: rush_accusation
+    text: Немедленно обвинить владельца
+    next_scene: ending_false_owner
+
+  - id: keep_investigating
+    text: Продолжить собирать доказательства
+    next_scene: intro

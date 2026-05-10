@@ -1,0 +1,19 @@
+id: striker
+text: "Форвард нервничает. Он признает, что игроки знали о странных ставках, но не о полном заговоре."
+
+effects:
+  discover_clues:
+    - players_knew
+
+choices:
+  - id: push_harder
+    text: Давить на форварда
+    next_scene: striker_break
+
+  - id: final_truth2
+    text: Идти до конца
+    next_scene: final_reveal
+
+  - id: accuse_striker
+    text: Обвинить форварда
+    next_scene: ending_wrong

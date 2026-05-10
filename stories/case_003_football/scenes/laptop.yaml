@@ -1,0 +1,18 @@
+id: laptop
+text: "На ноутбуке найден удаленный видеофайл. Перед исчезновением аналитик спорил с главным тренером."
+
+effects:
+  discover_clues:
+    - deleted_argument_video
+
+  suspect_scores:
+    coach: 2
+
+choices:
+  - id: coach_path
+    text: Найти тренера
+    next_scene: coach
+
+  - id: back_intro2
+    text: Вернуться
+    next_scene: intro

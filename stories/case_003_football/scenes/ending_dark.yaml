@@ -1,0 +1,8 @@
+id: ending_dark
+text: "Ты скрываешь доказательства. Клуб выигрывает чемпионство. Болельщики счастливы. Но аналитика больше никто не видит."
+
+ending:
+  id: protect_the_badge
+  title: Защитить эмблему
+  outcome: dark_success
+  completion: true

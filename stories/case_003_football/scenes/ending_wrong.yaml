@@ -1,0 +1,8 @@
+id: ending_wrong
+text: "Ты обвиняешь не того человека. Через несколько часов возле стадиона начинаются массовые беспорядки."
+
+ending:
+  id: wrong_man
+  title: Не тот виновный
+  outcome: failure
+  completion: true

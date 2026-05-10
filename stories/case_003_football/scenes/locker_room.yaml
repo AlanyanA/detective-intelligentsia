@@ -1,0 +1,15 @@
+id: locker_room
+text: "Раздевалка пуста. В мусорке лежит разорванный медицинский отчет."
+
+choices:
+  - id: talk_striker
+    text: Допросить форварда
+    next_scene: striker
+
+  - id: inspect_report
+    text: Собрать отчет
+    next_scene: med_report
+
+  - id: back_intro6
+    text: Вернуться
+    next_scene: intro

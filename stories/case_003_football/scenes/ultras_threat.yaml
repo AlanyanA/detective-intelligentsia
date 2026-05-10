@@ -1,0 +1,11 @@
+id: ultras_threat
+text: "Лидер ультрас резко заканчивает разговор. Через минуту тебе начинают поступать угрозы."
+
+effects:
+  set_flags:
+    ultras_hostile: true
+
+choices:
+  - id: leave_bar
+    text: Уйти
+    next_scene: intro

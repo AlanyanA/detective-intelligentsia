@@ -1,0 +1,15 @@
+id: med_report
+text: "Отчет подтверждает: капитан команды играл с серьезной травмой. Кто-то скрыл это от прессы."
+
+effects:
+  discover_clues:
+    - hidden_injury
+
+choices:
+  - id: coach_path2
+    text: Найти тренера
+    next_scene: coach
+
+  - id: back_intro7
+    text: Вернуться
+    next_scene: intro

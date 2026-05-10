@@ -1,0 +1,8 @@
+id: ending_security
+text: "Через две минуты тебя задерживает служба безопасности клуба. Все материалы исчезают, а расследование закрывают."
+
+ending:
+  id: silenced
+  title: Тебя заставили замолчать
+  outcome: failure
+  completion: true

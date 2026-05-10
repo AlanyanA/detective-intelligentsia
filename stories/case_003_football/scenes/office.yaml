@@ -1,0 +1,23 @@
+id: office
+text: "Кабинет аналитика перевернут. Но ноутбук все еще на месте. На доске тактическая схема с зачеркнутой фамилией капитана."
+
+effects:
+  discover_clues:
+    - crossed_captain_name
+
+choices:
+  - id: hack_laptop
+    text: Взломать ноутбук
+    next_scene: laptop
+
+  - id: inspect_papers
+    text: Изучить бумаги
+    next_scene: papers
+
+  - id: search_drawer
+    text: Проверить ящики стола
+    next_scene: vip_drawer
+
+  - id: back_intro
+    text: Вернуться
+    next_scene: intro

@@ -1,0 +1,8 @@
+id: ending_false_owner
+text: "Ты публично обвиняешь владельца клуба. Но доказательств недостаточно. Через сутки тебя обвиняют в клевете, а расследование закрывают."
+
+ending:
+  id: false_accusation
+  title: Слишком рано
+  outcome: failure
+  completion: true

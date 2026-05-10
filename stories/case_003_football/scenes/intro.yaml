@@ -1,0 +1,19 @@
+id: intro
+text: "За 4 часа до решающего матча сезона исчезает аналитик клуба «Север». Тебе приходит анонимное сообщение: «Матч уже продан». В клубе паника, полиция молчит."
+
+choices:
+  - id: office
+    text: Осмотреть кабинет аналитика
+    next_scene: office
+
+  - id: ultras
+    text: Найти лидера ультрас
+    next_scene: ultras_bar
+
+  - id: locker
+    text: Проверить раздевалку
+    next_scene: locker_room
+
+  - id: bets
+    text: Изучить подозрительные ставки
+    next_scene: betting

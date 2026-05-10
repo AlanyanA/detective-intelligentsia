@@ -1,0 +1,20 @@
+id: final_reveal
+text: "Ты понимаешь правду: руководство клуба специально сливало сезон, чтобы обрушить стоимость команды перед продажей."
+
+conditions:
+  - and:
+      - clue: fixed_season
+      - clue: owner_meeting
+      - or:
+          - clue: offshore_scheme
+          - clue: offshore_payment
+          - clue: management_bet
+
+choices:
+  - id: publish_truth
+    text: Опубликовать расследование
+    next_scene: ending_truth
+
+  - id: hide_truth
+    text: Скрыть правду ради клуба
+    next_scene: ending_dark

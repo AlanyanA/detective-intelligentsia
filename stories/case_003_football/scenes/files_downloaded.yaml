@@ -1,0 +1,15 @@
+id: files_downloaded
+text: "В отчетах указаны переводы между владельцем клуба и офшорной компанией за день до матча."
+
+effects:
+  discover_clues:
+    - offshore_scheme
+
+choices:
+  - id: confront_owner
+    text: Встретиться с владельцем
+    next_scene: owner
+
+  - id: continue_investigation
+    text: Продолжить расследование
+    next_scene: intro

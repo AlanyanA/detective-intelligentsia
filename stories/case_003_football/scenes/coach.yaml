@@ -1,0 +1,15 @@
+id: coach
+text: "Тренер признается: аналитик узнал о намеренном сливе сезона ради продажи клуба новым инвесторам."
+
+effects:
+  discover_clues:
+    - fixed_season
+
+choices:
+  - id: final_truth
+    text: Собрать все доказательства
+    next_scene: final_reveal
+
+  - id: accuse_coach
+    text: Обвинить тренера
+    next_scene: ending_wrong

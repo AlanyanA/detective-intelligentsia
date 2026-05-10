@@ -1,0 +1,15 @@
+id: vip_drawer
+text: "В нижнем ящике ты находишь VIP-пропуск аналитика с доступом в закрытый сектор стадиона."
+
+effects:
+  add_inventory:
+    - vip_pass
+
+choices:
+  - id: server_room
+    text: Использовать пропуск
+    next_scene: server_room
+
+  - id: back_intro_vip
+    text: Вернуться
+    next_scene: intro

@@ -1,0 +1,15 @@
+id: transfer
+text: "Ты находишь перевод крупной суммы на офшорный счет за сутки до матча."
+
+effects:
+  discover_clues:
+    - offshore_payment
+
+choices:
+  - id: owner_path3
+    text: Искать владельца клуба
+    next_scene: owner
+
+  - id: back_intro10
+    text: Вернуться
+    next_scene: intro

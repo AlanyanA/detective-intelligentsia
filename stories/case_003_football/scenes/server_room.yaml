@@ -1,0 +1,19 @@
+id: server_room
+text: "Серверная пуста. На одном из мониторов открыт удаленный финансовый отчет."
+
+conditions:
+  - inventory: vip_pass
+
+effects:
+  discover_clues:
+    - secret_accounts
+    - deleted_finances
+
+choices:
+  - id: download_files
+    text: Скачать файлы
+    next_scene: files_downloaded
+
+  - id: call_security
+    text: Сообщить охране
+    next_scene: ending_security

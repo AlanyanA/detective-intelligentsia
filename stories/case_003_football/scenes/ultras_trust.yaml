@@ -1,0 +1,15 @@
+id: ultras_trust
+text: "Ультрас показывают тебе запись: ночью аналитик встречался с владельцем клуба возле парковки стадиона."
+
+effects:
+  discover_clues:
+    - owner_meeting
+
+choices:
+  - id: owner_path
+    text: Найти владельца клуба
+    next_scene: owner
+
+  - id: back_intro5
+    text: Вернуться
+    next_scene: intro

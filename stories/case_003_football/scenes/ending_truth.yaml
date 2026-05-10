@@ -1,0 +1,8 @@
+id: ending_truth
+text: "Расследование публикуют по всей стране. Клуб исключают из лиги, но правда становится известна."
+
+ending:
+  id: football_dies
+  title: Футбол умирает
+  outcome: success
+  completion: true

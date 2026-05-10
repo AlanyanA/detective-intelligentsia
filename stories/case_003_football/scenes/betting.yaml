@@ -1,0 +1,19 @@
+id: betting
+text: "За час до исчезновения аналитика коэффициенты на поражение клуба резко упали."
+
+effects:
+  discover_clues:
+    - betting_spike
+
+choices:
+  - id: bookmaker
+    text: Найти букмекера
+    next_scene: bookmaker
+
+  - id: money_transfer
+    text: Проверить перевод денег
+    next_scene: transfer
+
+  - id: back_intro8
+    text: Вернуться
+    next_scene: intro

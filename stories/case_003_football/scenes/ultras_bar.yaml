@@ -1,0 +1,15 @@
+id: ultras_bar
+text: "В баре возле стадиона лидер ультрас неохотно идет на разговор. Он уверен: клуб что-то скрывает."
+
+choices:
+  - id: gain_trust
+    text: Попытаться войти в доверие
+    next_scene: ultras_trust
+
+  - id: threaten
+    text: Давить угрозами
+    next_scene: ultras_threat
+
+  - id: back_intro4
+    text: Уйти
+    next_scene: intro

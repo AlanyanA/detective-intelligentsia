@@ -1,0 +1,15 @@
+id: papers
+text: "Среди бумаг ты находишь список ставок на матч. Несколько ставок сделаны с аккаунтов игроков клуба."
+
+effects:
+  discover_clues:
+    - player_bets
+
+choices:
+  - id: striker_path
+    text: Поговорить с форвардом
+    next_scene: striker
+
+  - id: back_intro3
+    text: Вернуться
+    next_scene: intro
