@@ -17,9 +17,11 @@ logger = logging.getLogger(__name__)
 
 
 def build_router(game_service: GameService, catalog: StoryCatalog, sender: TelegramSceneSender) -> Router:
-    router = Router()
+    router = Router(name="root")
+    menu_router = Router(name="menu")
+    story_router = Router(name="story_engine")
 
-    @router.message(Command("start"))
+    @menu_router.message(Command("start"))
     async def start(message: Message) -> None:
         states = await game_service.list_user_states(message.from_user.id)
         await message.answer(
@@ -27,31 +29,38 @@ def build_router(game_service: GameService, catalog: StoryCatalog, sender: Teleg
             reply_markup=main_menu_keyboard(has_continue=bool(states)),
         )
 
-    @router.message(Command("stories"))
+    @menu_router.message(Command("stories"))
     async def stories_command(message: Message) -> None:
+        logger.debug("Stories command received from user_id=%s", message.from_user.id if message.from_user else None)
         await _send_story_list(message)
 
-    @router.message(Command("continue"))
+    @menu_router.message(Command("continue"))
     async def continue_command(message: Message) -> None:
         await _continue(message)
 
-    @router.message(Command("restart"))
+    @menu_router.message(Command("restart"))
     async def restart_hint(message: Message) -> None:
         await message.answer("Open the current ending or choose a story, then use Restart.")
 
-    @router.callback_query(F.data == STORIES_CALLBACK)
+    @menu_router.callback_query(F.data == STORIES_CALLBACK)
     async def stories_callback(callback: CallbackQuery) -> None:
+        logger.debug(
+            "Stories callback received: data=%r user_id=%s message_id=%s",
+            callback.data,
+            callback.from_user.id if callback.from_user else None,
+            callback.message.message_id if callback.message else None,
+        )
         await callback.answer()
         if callback.message:
             await _send_story_list(callback.message)
 
-    @router.callback_query(F.data == CONTINUE_CALLBACK)
+    @menu_router.callback_query(F.data == CONTINUE_CALLBACK)
     async def continue_callback(callback: CallbackQuery) -> None:
         await callback.answer()
         if callback.message:
             await _continue(callback.message)
 
-    @router.callback_query(F.data.startswith("s:"))
+    @story_router.callback_query(F.data.startswith("s:"))
     async def story_callback(callback: CallbackQuery) -> None:
         await callback.answer()
         if not callback.message or not callback.from_user:
@@ -62,7 +71,7 @@ def build_router(game_service: GameService, catalog: StoryCatalog, sender: Teleg
             view = await game_service.start_story(callback.from_user.id, story_id)
         await sender.answer_scene(callback.message, view.rendered)
 
-    @router.callback_query(F.data == RESTART_CALLBACK)
+    @story_router.callback_query(F.data == RESTART_CALLBACK)
     async def restart_callback(callback: CallbackQuery) -> None:
         await callback.answer()
         if not callback.message or not callback.from_user:
@@ -73,7 +82,7 @@ def build_router(game_service: GameService, catalog: StoryCatalog, sender: Teleg
             return
         await sender.answer_scene(callback.message, view.rendered)
 
-    @router.callback_query(F.data.startswith("c:"))
+    @story_router.callback_query(F.data.startswith("c:"))
     async def choice_callback(callback: CallbackQuery) -> None:
         await callback.answer()
         if not callback.message or not callback.from_user:
@@ -104,4 +113,6 @@ def build_router(game_service: GameService, catalog: StoryCatalog, sender: Teleg
             return
         await sender.answer_scene(message, view.rendered)
 
+    router.include_router(menu_router)
+    router.include_router(story_router)
     return router
