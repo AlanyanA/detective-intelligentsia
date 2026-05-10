@@ -1,0 +1,28 @@
+id: hatch
+text: "Behind the hatch, warm air rises from a crawlspace. A fresh fiber cable runs toward the antenna mast."
+conditions:
+  - and:
+      - clue: antenna_log
+      - or:
+          - flag: tech_trusted
+          - inventory: station_badge
+effects:
+  discover_clues:
+    - fiber_cable
+  suspect_scores:
+    visitor: 1
+choices:
+  - id: crawl_to_mast
+    text: Follow the cable
+    next_scene: mast
+  - id: accuse_visitor
+    text: Accuse the visitor
+    next_scene: ending_success
+    conditions:
+      - and:
+          - clue: fiber_cable
+          - suspect_score: visitor
+            gte: 3
+  - id: accuse_technician
+    text: Accuse technician
+    next_scene: ending_wrong

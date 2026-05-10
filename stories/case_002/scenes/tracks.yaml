@@ -1,0 +1,19 @@
+id: tracks
+text: "One set of tracks stops at a blank wall. The snow beneath the service hatch is packed hard."
+effects:
+  discover_clues:
+    - hatch_tracks
+  set_flags:
+    tracks_checked: true
+choices:
+  - id: pocket_badge
+    text: Pocket a dropped badge
+    next_scene: badge
+    effects:
+      add_inventory:
+        - station_badge
+      discover_clues:
+        - dropped_badge
+  - id: back
+    text: Return to station
+    next_scene: station

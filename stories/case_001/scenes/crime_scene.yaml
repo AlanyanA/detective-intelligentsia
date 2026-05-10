@@ -1,0 +1,19 @@
+id: crime_scene
+text: "The study smells of cold ash. Volkov lies beside the desk. A wall safe glints behind a crooked painting."
+choices:
+  - id: inspect_body
+    text: Inspect the body
+    next_scene: body
+  - id: question_doorman
+    text: Question the doorman
+    next_scene: doorman
+  - id: open_safe
+    text: Open the wall safe
+    next_scene: safe
+    conditions:
+      - inventory: brass_key
+  - id: make_accusation
+    text: Name the killer
+    next_scene: accusation
+    conditions:
+      - clue: ledger_fragment

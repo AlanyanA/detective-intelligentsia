@@ -1,0 +1,21 @@
+id: station
+text: "The relay station is silent. A distress call came from inside, but every door is locked from the snow side."
+choices:
+  - id: search_console
+    text: Check the console
+    next_scene: console
+  - id: inspect_tracks
+    text: Inspect snow tracks
+    next_scene: tracks
+  - id: interview_tech
+    text: Interview the technician
+    next_scene: technician
+  - id: open_service_hatch
+    text: Open service hatch
+    next_scene: hatch
+    conditions:
+      - and:
+          - clue: antenna_log
+          - or:
+              - flag: tech_trusted
+              - inventory: station_badge

@@ -1,0 +1,11 @@
+id: copied_logs
+text: "The copied logs include a maintenance override signed with a guest badge."
+effects:
+  discover_clues:
+    - guest_override
+  suspect_scores:
+    visitor: 2
+choices:
+  - id: back
+    text: Return to station
+    next_scene: station

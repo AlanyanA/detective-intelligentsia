@@ -1,0 +1,13 @@
+id: doorman_breaks
+text: "He admits letting in Mira, Volkov's partner. She carried a flat parcel and left without it."
+effects:
+  set_flags:
+    doorman_confessed: true
+  suspect_scores:
+    mira: 1
+  discover_clues:
+    - mira_visit
+choices:
+  - id: return
+    text: Return to the study
+    next_scene: crime_scene

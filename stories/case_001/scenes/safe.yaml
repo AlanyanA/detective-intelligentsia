@@ -1,0 +1,21 @@
+id: safe
+text: "The safe opens. Inside: a torn ledger page and a courier receipt hidden under a pistol case."
+media:
+  - kind: document
+    path: assets/ledger_fragment.txt
+    caption: "Evidence: torn ledger page"
+effects:
+  set_flags:
+    safe_opened: true
+  discover_clues:
+    - ledger_fragment
+    - courier_receipt
+  suspect_scores:
+    mira: 2
+choices:
+  - id: accuse
+    text: Name the killer
+    next_scene: accusation
+  - id: return
+    text: Return to the study
+    next_scene: crime_scene

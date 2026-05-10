@@ -1,0 +1,7 @@
+id: case_001
+title: The Last Telegram
+version: 1.0.0
+author: Codex Studio
+start_scene: intro
+description: A compact noir case about a locked study, a missing ledger, and one fatal message.
+language: en

@@ -1,0 +1,7 @@
+id: case_002
+title: Signal in the Snow
+version: 1.0.0
+author: Codex Studio
+start_scene: station
+description: A mountain relay station case with a false distress call and a hidden sabotage route.
+language: en

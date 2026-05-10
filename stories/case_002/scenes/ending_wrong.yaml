@@ -1,0 +1,7 @@
+id: ending_wrong
+text: "The technician was scared, not guilty. By dawn, the transmitter and the contractor are gone."
+ending:
+  id: wrong_suspect
+  title: Wrong Suspect
+  outcome: failure
+  completion: true

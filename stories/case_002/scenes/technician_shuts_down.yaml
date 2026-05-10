@@ -1,0 +1,9 @@
+id: technician_shuts_down
+text: "He asks for union representation and stops answering. That route is closed for now."
+effects:
+  set_flags:
+    tech_trusted: false
+choices:
+  - id: back
+    text: Return to station
+    next_scene: station

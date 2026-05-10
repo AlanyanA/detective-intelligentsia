@@ -1,0 +1,6 @@
+id: key_tag
+text: "The tag reads S-14. The wall safe uses the same old municipal keyway."
+choices:
+  - id: return
+    text: Return to the study
+    next_scene: crime_scene

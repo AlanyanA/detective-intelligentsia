@@ -1,0 +1,19 @@
+id: body
+text: "No defensive wounds. In his palm: a torn brass key tag and a smear of printer ink."
+effects:
+  set_flags:
+    body_examined: true
+  discover_clues:
+    - ink_smear
+choices:
+  - id: take_key
+    text: Take the key tag
+    next_scene: key_tag
+    effects:
+      add_inventory:
+        - brass_key
+      discover_clues:
+        - brass_key_tag
+  - id: return
+    text: Return to the study
+    next_scene: crime_scene

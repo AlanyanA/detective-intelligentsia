@@ -1,0 +1,9 @@
+id: intro
+text: "A rain-soaked dispatcher sends you to Volkov's study. The final message on his phone reads: 'Tell nobody about the ledger.'"
+choices:
+  - id: enter_study
+    text: Enter the study
+    next_scene: crime_scene
+    effects:
+      set_flags:
+        accepted_case: true

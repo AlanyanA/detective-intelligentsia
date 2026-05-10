@@ -1,0 +1,6 @@
+id: badge
+text: "The badge belongs to a temporary contractor. Its magnetic strip still works."
+choices:
+  - id: back
+    text: Return to station
+    next_scene: station

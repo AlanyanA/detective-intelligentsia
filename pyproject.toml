@@ -1,0 +1,38 @@
+[project]
+name = "telegram-detective-engine"
+version = "0.1.0"
+description = "Universal interactive fiction engine for Telegram detective games."
+requires-python = ">=3.12"
+dependencies = [
+    "aiogram>=3.13,<4.0",
+    "aiosqlite>=0.20,<1.0",
+    "pydantic>=2.8,<3.0",
+    "pydantic-settings>=2.4,<3.0",
+    "python-dotenv>=1.0,<2.0",
+    "PyYAML>=6.0,<7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3,<9.0",
+    "pytest-asyncio>=0.24,<1.0",
+    "ruff>=0.6,<1.0",
+]
+
+[project.scripts]
+detective = "detective_bot.cli:main"
+
+[build-system]
+requires = ["setuptools>=72.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["src"]

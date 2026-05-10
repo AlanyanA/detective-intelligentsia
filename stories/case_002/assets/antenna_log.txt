@@ -1,0 +1,4 @@
+ANTENNA RELAY LOG
+
+02:14 backup antenna disabled by maintenance override.
+02:17 distress call replayed from local transmitter.

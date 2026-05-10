@@ -1,0 +1,7 @@
+id: ending_true
+text: "Mira confesses when shown the ledger page and receipt. She came for the accounts; Volkov reached the phone first."
+ending:
+  id: case_closed
+  title: Case Closed
+  outcome: success
+  completion: true

@@ -1,0 +1,11 @@
+id: technician_trusts
+text: "He admits the hatch sensor was bypassed. 'Only a badge or my override could open it.'"
+effects:
+  set_flags:
+    tech_trusted: true
+  discover_clues:
+    - hatch_bypass
+choices:
+  - id: back
+    text: Return to station
+    next_scene: station

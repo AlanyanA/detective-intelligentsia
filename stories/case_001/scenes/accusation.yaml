@@ -1,0 +1,19 @@
+id: accusation
+text: "Two suspects remain: the doorman with the lie, and Mira with the missing parcel."
+choices:
+  - id: accuse_doorman
+    text: Accuse the doorman
+    next_scene: ending_false
+    conditions:
+      - suspect_score: doorman
+        gte: 2
+  - id: accuse_mira
+    text: Accuse Mira
+    next_scene: ending_true
+    conditions:
+      - and:
+          - clue: ledger_fragment
+          - clue: mira_visit
+  - id: hold_back
+    text: Keep investigating
+    next_scene: crime_scene

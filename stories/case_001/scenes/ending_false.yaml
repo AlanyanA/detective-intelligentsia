@@ -1,0 +1,7 @@
+id: ending_false
+text: "The doorman folds under pressure, but his story breaks in court. The ledger vanishes before sunrise."
+ending:
+  id: false_arrest
+  title: False Arrest
+  outcome: failure
+  completion: true

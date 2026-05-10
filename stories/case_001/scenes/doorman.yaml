@@ -1,0 +1,14 @@
+id: doorman
+text: "The doorman says nobody entered after midnight. His collar is damp, but the lobby has been dry for hours."
+choices:
+  - id: press_him
+    text: Press the contradiction
+    next_scene: doorman_breaks
+    effects:
+      suspect_scores:
+        doorman: 2
+      discover_clues:
+        - wet_collar
+  - id: return
+    text: Return to the study
+    next_scene: crime_scene

@@ -1,0 +1,19 @@
+id: mast
+text: "The cable ends at a hidden transmitter. It replayed the distress call after the real operator had already left."
+effects:
+  discover_clues:
+    - replay_transmitter
+choices:
+  - id: secret_deduction
+    text: Make full deduction
+    next_scene: ending_secret
+    conditions:
+      - and:
+          - clue: replay_transmitter
+          - clue: guest_override
+          - or:
+              - flag: tech_trusted
+              - inventory: station_badge
+  - id: accuse_visitor
+    text: Accuse the visitor
+    next_scene: ending_success

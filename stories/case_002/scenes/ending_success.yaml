@@ -1,0 +1,7 @@
+id: ending_success
+text: "The contractor staged the call to clear the station and steal the uplink codes. You stop him at the roadblock."
+ending:
+  id: signal_restored
+  title: Signal Restored
+  outcome: success
+  completion: true

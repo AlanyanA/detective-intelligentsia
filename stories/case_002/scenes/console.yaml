@@ -1,0 +1,21 @@
+id: console
+text: "The console log shows a distress ping sent after the backup antenna was manually disabled."
+media:
+  - kind: document
+    path: assets/antenna_log.txt
+    caption: "Evidence: antenna log"
+effects:
+  discover_clues:
+    - antenna_log
+  set_flags:
+    console_checked: true
+choices:
+  - id: copy_logs
+    text: Copy the logs
+    next_scene: copied_logs
+    effects:
+      add_inventory:
+        - encrypted_logs
+  - id: back
+    text: Return to station
+    next_scene: station

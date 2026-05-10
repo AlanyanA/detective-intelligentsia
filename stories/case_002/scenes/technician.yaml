@@ -1,0 +1,14 @@
+id: technician
+text: "The technician insists the backup antenna failed by itself. He relaxes when you mention the old audit logs."
+choices:
+  - id: show_console_log
+    text: Show antenna log
+    next_scene: technician_trusts
+    conditions:
+      - clue: antenna_log
+  - id: push_without_proof
+    text: Push without proof
+    next_scene: technician_shuts_down
+  - id: back
+    text: Return to station
+    next_scene: station
