@@ -26,6 +26,9 @@ detective = "detective_bot.cli:main"
 requires = ["setuptools>=72.0"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+package-dir = {"" = "src"}
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
