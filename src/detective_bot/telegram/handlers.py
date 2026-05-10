@@ -31,7 +31,7 @@ def build_router(game_service: GameService, catalog: StoryCatalog, sender: Teleg
 
     @menu_router.message(Command("stories"))
     async def stories_command(message: Message) -> None:
-        logger.debug("Stories command received from user_id=%s", message.from_user.id if message.from_user else None)
+        logger.info("Stories command received from user_id=%s", message.from_user.id if message.from_user else None)
         await _send_story_list(message)
 
     @menu_router.message(Command("continue"))
@@ -44,7 +44,7 @@ def build_router(game_service: GameService, catalog: StoryCatalog, sender: Teleg
 
     @menu_router.callback_query(F.data == STORIES_CALLBACK)
     async def stories_callback(callback: CallbackQuery) -> None:
-        logger.debug(
+        logger.info(
             "Stories callback received: data=%r user_id=%s message_id=%s",
             callback.data,
             callback.from_user.id if callback.from_user else None,
@@ -52,7 +52,12 @@ def build_router(game_service: GameService, catalog: StoryCatalog, sender: Teleg
         )
         await callback.answer()
         if callback.message:
-            await _send_story_list(callback.message)
+            try:
+                await _send_story_list(callback.message)
+            except Exception:
+                logger.exception("Failed to open story list from Stories callback")
+                await callback.message.answer("Could not open the case list. Try again later.")
+
 
     @menu_router.callback_query(F.data == CONTINUE_CALLBACK)
     async def continue_callback(callback: CallbackQuery) -> None:
@@ -98,6 +103,15 @@ def build_router(game_service: GameService, catalog: StoryCatalog, sender: Teleg
             await callback.message.answer("The case file could not be opened. Try again later.")
             return
         await sender.answer_scene(callback.message, view.rendered)
+
+    @story_router.callback_query()
+    async def unhandled_callback(callback: CallbackQuery) -> None:
+        logger.warning(
+            "Unhandled callback received: data=%r user_id=%s",
+            callback.data,
+            callback.from_user.id if callback.from_user else None,
+        )
+        await callback.answer()
 
     async def _send_story_list(message: Message) -> None:
         stories = catalog.list_stories()

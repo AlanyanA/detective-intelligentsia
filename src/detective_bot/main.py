@@ -11,6 +11,8 @@ from detective_bot.engine import ConditionEvaluator, SceneRenderer, StateMutator
 from detective_bot.services import GameService, StoryCatalog
 from detective_bot.telegram import TelegramSceneSender, build_router
 
+logger = logging.getLogger(__name__)
+
 
 async def main() -> None:
     settings = get_settings()
@@ -30,7 +32,9 @@ async def main() -> None:
     bot = Bot(token=settings.bot_token)
     dispatcher = Dispatcher()
     dispatcher.include_router(build_router(game_service, catalog, sender))
-    await dispatcher.start_polling(bot)
+    allowed_updates = ["message", "callback_query"]
+    logger.info("Starting polling with allowed_updates=%s", allowed_updates)
+    await dispatcher.start_polling(bot, allowed_updates=allowed_updates)
 
 
 if __name__ == "__main__":
